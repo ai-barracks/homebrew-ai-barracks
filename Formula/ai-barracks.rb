@@ -1,8 +1,8 @@
 class AiBarracks < Formula
   desc "Git-native AI agent workspace with session tracking and persistent memory"
   homepage "https://github.com/ai-barracks/ai-barracks"
-  url "https://github.com/ai-barracks/ai-barracks/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "ce11ad8db678a08aaecef084968888bc4eb155fda6f0eea325420df809f2d544"
+  url "https://github.com/ai-barracks/ai-barracks/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "1f7d97fba4f24d8e91f45d7e0217a11f998fcee679bb6806e4e595ce75f4e778"
   license "MIT"
 
   def install
