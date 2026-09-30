@@ -1,0 +1,16 @@
+name: Homebrew formula regression
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  formula:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: ruby -c Formula/ai-barracks.rb
+      - name: Install published archive through local tap
+        run: |
+          brew tap ai-barracks/ai-barracks "$GITHUB_WORKSPACE"
+          brew install ai-barracks/ai-barracks/ai-barracks
+          brew test ai-barracks/ai-barracks/ai-barracks
+          test "$(aib version)" = "aib v1.4.0"
