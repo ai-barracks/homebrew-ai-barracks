@@ -13,4 +13,6 @@ jobs:
           brew tap ai-barracks/ai-barracks "$GITHUB_WORKSPACE"
           brew install ai-barracks/ai-barracks/ai-barracks
           brew test ai-barracks/ai-barracks/ai-barracks
-          test "$(aib version)" = "aib v1.4.0"
+          # Expected version comes from the formula url, so a release bump needs no CI edit.
+          expected="$(sed -n 's|.*refs/tags/\(v[0-9.]*\)\.tar\.gz.*|\1|p' Formula/ai-barracks.rb)"
+          test -n "$expected" && test "$(aib version)" = "aib $expected"
